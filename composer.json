@@ -1,0 +1,20 @@
+{
+    "name": "root/mvcestruturado.app",
+    "authors": [
+        {
+            "name": "Geisson Machado Antunes",
+            "email": "geisonnm@hotmail.com"
+        }
+    ],
+    "require": {},
+
+    "autoload": 
+    {
+        "psr-4":{
+
+            "App\\": "App/",
+            "SON\\": "vendor/SON/"
+        },
+        "files" : ["App/Helpers/renderView.php"]
+    }
+}
