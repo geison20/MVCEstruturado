@@ -4,7 +4,7 @@ namespace App;
 
 use SON\Bootstrap;
 
-class Init extends Bootstrap {
+class Routes extends Bootstrap {
     
     
     protected function initRoutes() 
@@ -12,13 +12,13 @@ class Init extends Bootstrap {
         {
             $routes["home"] = [
                "route"      => "/",
-               "controller" => "Index",
+               "controller" => "Empresa",
                "action"     => "index"
             ];
             $routes["empresa"] = [
                "route"      => "/empresa",
-               "controller" => "Index",
-               "action"     => "empresa"
+               "controller" => "Empresa",
+               "action"     => "showEmpresa"
             ];
             
             $this->setRoute($routes);

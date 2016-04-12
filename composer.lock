@@ -1,0 +1,66 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "fcd9c6e541f3fda9e588af27b7282046",
+    "content-hash": "2c64ef7647f617dcec30b82b3bd45a50",
+    "packages": [
+        {
+            "name": "geissonmachado/helpers",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/geison20/utility-helpers.git",
+                "reference": "3ee6fd1bbfd8a65523023d156a1f53d1a3ad61b0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/geison20/utility-helpers/zipball/3ee6fd1bbfd8a65523023d156a1f53d1a3ad61b0",
+                "reference": "3ee6fd1bbfd8a65523023d156a1f53d1a3ad61b0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "geissonmachado\\Helpers\\": "Helpers/"
+                },
+                "files": [
+                    "teste.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Geisson Machado Antunes",
+                    "email": "geisonnm@hotmail.com",
+                    "homepage": "https://github.com/geison20",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Pacote com Helpers personalizados.",
+            "keywords": [
+                "helpers",
+                "utility"
+            ],
+            "time": "2016-04-12 01:32:01"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "geissonmachado/helpers": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

@@ -6,7 +6,9 @@
             "email": "geisonnm@hotmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "geissonmachado/helpers" : "dev-master"
+    },
 
     "autoload": 
     {
