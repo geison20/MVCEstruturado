@@ -1,29 +1,48 @@
-<?php 
+<?php declare(strict_types=1);
 
 namespace App;
 
-use SON\Bootstrap;
+use App\Core\Routes\Routes as route;
 
-class Routes extends Bootstrap {
+class Routes extends route
+{
+
+    public function __construct()
+    {
+        $this->initRoutes();
+
+        parent::__construct();
+    }
     
-    
+    /**
+     * // @override
+     * 
+     * Create array with routes;
+     * e.g :
+     *   $routes["home"] = [
+     *     "route"      => "/home",
+     *     "controller" => "Home",
+     *     "action"     => "index"
+     *   ]; 
+     */
     protected function initRoutes() 
     {
-        {
-            $routes["home"] = [
+            $routes[] = [
                "route"      => "/",
-               "controller" => "Empresa",
+               "controller" => "Home",
                "action"     => "index"
             ];
-            $routes["empresa"] = [
-               "route"      => "/empresa",
-               "controller" => "Empresa",
-               "action"     => "showEmpresa"
+            $routes[] = [
+               "route"      => "/teste",
+               "controller" => "Home",
+               "action"     => "teste"
             ];
+            // $routes["empresa"] = [
+            //    "route"      => "/empresa",
+            //    "controller" => "Empresa",
+            //    "action"     => "showEmpresa"
+            // ];
             
             $this->setRoute($routes);
-            
-        }
     }
-
 }
