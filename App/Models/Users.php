@@ -7,13 +7,13 @@ class Users
 	
 	public $db;
 
-	function __construct(\PDO $db)
+	function __construct(\App\Core\Database\InterfaceInstancePDO $db)
 	{
-		$this->db = $db;
+		$this->db = $db->getInstancePDO();
 	}
 
 	public function getAllUsers()
 	{
-		return $this->db->query('SELECT * FROM users');	
+		return $this->db->query('SELECT * FROM usuario');	
 	}
 }

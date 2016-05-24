@@ -1,37 +1,20 @@
 <?php 
 
-	// Uso de PHP 7 para tipagem forte.
-	declare(strict_types=1);
+    // Uso de PHP 7 para tipagem forte.
+    declare(strict_types=1);
 
-	/**
-	 * Composer Autoload System.
-	*/
-	require_once "../vendor/autoload.php";
+    /**
+     * Composer Autoload System.
+    */
+    require_once "../vendor/autoload.php";
 
-	// uso de namespaces usando estilo de psr-4.
-	use 
+    // uso de namespaces usando estilo de psr-4.
+    use 
         App\Routes as Route,
         App\Database,
         Dotenv\Dotenv;
 
-        
-
-	/*
-    |--------------------------------------------------------------------------
-    | Load System VAR 
-    |--------------------------------------------------------------------------
-    |
-    | Carrega as Variaveis de Sistema
-    | 
-    | https://github.com/vlucas/phpdotenv
-    |
-    */
-   
-	$dotenv = new Dotenv(__DIR__); 
-	$dotenv->load();
-	$dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS']);
-	
-	/*
+    /*
     |--------------------------------------------------------------------------
     | Load Application Config 
     |--------------------------------------------------------------------------
@@ -42,9 +25,24 @@
     |
     */
 	
-	$Configuration = include('../App/Config/Config.php');
+    $config = include('../App/Config/Config.php');    
+        
+    /*
+    |--------------------------------------------------------------------------
+    | Load System VAR 
+    |--------------------------------------------------------------------------
+    |
+    | Carrega as Variaveis de Sistema
+    | 
+    | https://github.com/vlucas/phpdotenv
+    |
+    */
+   
+    $dotenv = new Dotenv($config['DOTENV_PATH']); 
+    $dotenv->load();
+    $dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS']);
 
-	/*
+    /*
     |--------------------------------------------------------------------------
     | Load System Routes 
     |--------------------------------------------------------------------------
@@ -55,9 +53,9 @@
     |
     */
 
-	$bootApp = new Route();
+    $bootApp = new Route();
 
-	/*
+    /*
     |--------------------------------------------------------------------------
     | Load System Database 
     |--------------------------------------------------------------------------
@@ -68,4 +66,4 @@
     |
     */
 	
-	$db = new Database();
+    $db = new Database();

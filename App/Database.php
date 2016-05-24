@@ -2,19 +2,21 @@
 
 namespace App;
 
-use App\Core\Database\Database as DB;
+use 
+    App\Core\Database\InterfaceInstancePDO    
+    ;
 
-class Database extends DB
+class Database implements InterfaceInstancePDO
 {
 
-	static function getInstancePDO()
+	public function getInstancePDO()
 	{
 		try {
 			return new \PDO( sprintf("mysql:host=%s;dbname=%s", getenv('DB_HOST'), getenv('DB_NAME')), 
 				getenv('DB_USER'), getenv('DB_PASS'));
 		} catch (\PDOException $e) {
 			//SaveLog($e); NÃO IMPLEMENTADA.
-			die('erro');
-		}
+			throw new \Exception($e->getMessage(),404);
+                    }
 	}
 }

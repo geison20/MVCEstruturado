@@ -2,16 +2,15 @@
 
 namespace App;
 
-use App\Core\Routes\Routes as route;
+use App\Core\Routes\ExecRoutes as execRoute,
+    App\Core\Routes\InitRoutes;
 
-class Routes extends route
+class Routes extends InitRoutes
 {
 
     public function __construct()
     {
         $this->initRoutes();
-
-        parent::__construct();
     }
     
     /**
@@ -37,12 +36,12 @@ class Routes extends route
                "controller" => "Home",
                "action"     => "teste"
             ];
-            // $routes["empresa"] = [
-            //    "route"      => "/empresa",
-            //    "controller" => "Empresa",
-            //    "action"     => "showEmpresa"
-            // ];
+             $routes[] = [
+                "route"      => "/empresa",
+                "controller" => "Empresa",
+                "action"     => "showEmpresa"
+             ];
             
-            $this->setRoute($routes);
+            $route = new execRoute($routes);
     }
 }

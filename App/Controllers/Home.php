@@ -3,7 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\Users,
-	App\Database;
+    App\Database
+    ;
 
 class Home
 {
@@ -15,7 +16,8 @@ class Home
 	}
 	public function teste()
 	{
-		$user = new Users(Database::getInstancePDO());
+            
+		$user = new Users(new Database());;
 		$x = $user->getAllUsers();
 
 		var_dump($x->fetchAll(\PDO::FETCH_OBJ));die;

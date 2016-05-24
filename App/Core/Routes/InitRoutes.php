@@ -1,14 +1,20 @@
 <?php declare(strict_types=1);
 
-namespace App\Core\Database;
+namespace App\Core\Routes;
 
-abstract class Database
+/**
+ * Description of InitRoutes
+ *
+ * @author geisson
+ */
+abstract class InitRoutes
 {
-
+    
     /*
     |--------------------------------------------------------------------------
-    | Init Instance for PDO
+    | Init Routes
     |--------------------------------------------------------------------------
     */
-    abstract static function getInstancePDO();
+    
+    abstract protected function initRoutes();
 }

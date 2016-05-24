@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Bootstrap Routes Framework
  */
-abstract class Routes
+class ExecRoutes
 {
     
     /**
@@ -19,30 +19,24 @@ abstract class Routes
     /**
      * Call construct and runRoutes.
      */
-    protected function __construct()
+    public function __construct(array $routes)
     {
+        $this->route = $routes;
+        
         $httpRequest  = Request::createFromGlobals();
-        var_dump($httpRequest->query->get('id'));die;
+//        var_dump($httpRequest->query->get('id'));die;
         $this->runRoutes($httpRequest->getPathInfo());
     }
-
-    /*
-    |--------------------------------------------------------------------------
-    | Init Routes
-    |--------------------------------------------------------------------------
-    */
-    
-    abstract protected function initRoutes();
 
     /**
      * set routes for attribute
      * @param array $routes routes array.
      * @return   class chain.
      */
-    protected function setRoute(array $routes)
-    {
-        $this->route = $routes;
-    }
+//    public function setRoute(array $routes)
+//    {
+//        $this->route = $routes;
+//    }
 
     /**
      * get URI from browser 
