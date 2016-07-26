@@ -18,35 +18,35 @@ class RouteSystem
     | Array com rotas.
     |--------------------------------------------------------------------------
     */
-    protected $route = array();
+    private $route = array();
 
     /*
     |--------------------------------------------------------------------------
     | recebe o request do user.
     |--------------------------------------------------------------------------
     */
-    protected $request;
+    private $request;
 
     /*
     |--------------------------------------------------------------------------
     | armazena o controller da aplicacao.
     |--------------------------------------------------------------------------
     */
-    protected $controller;
+    private $controller;
 
     /*
     |--------------------------------------------------------------------------
     | aponta para a action do controller.
     |--------------------------------------------------------------------------
     */
-    protected $action;
+    private $action;
 
     /*
     |--------------------------------------------------------------------------
     | aponta para o namespace do controller.
     |--------------------------------------------------------------------------
     */
-    protected $namespace;
+    private $namespace;
 
 
     /*
@@ -87,11 +87,15 @@ class RouteSystem
     }
 
 
+    /*
+    |--------------------------------------------------------------------------
+    | onde a magica ocorre, verifico se o path do metodo addRoute() é igual a request do usuário.
+    |--------------------------------------------------------------------------
+    */
     public function run()
     {
         array_walk($this->route, function ($callback, $path)
         {
-          // dd($path);
             if ($path == $this->request())
             {
               $callback();
