@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace App\Controllers;
 
@@ -10,19 +10,20 @@ class Home
 {
 	public function index()
 	{
-		
-		
+
+
 		renderView('index.phtml');
 	}
 	public function teste()
 	{
-            
-		$user = new Users(new Database());;
-		$x = $user->getAllUsers();
 
-		var_dump($x->fetchAll(\PDO::FETCH_OBJ));die;
-		
-		echo "Controller: HOME | Action: TESTE";
+    dd("OK");
+		// $user = new Users(new Database());;
+		// $x = $user->getAllUsers();
+    //
+		// var_dump($x->fetchAll(\PDO::FETCH_OBJ));die;
+    //
+		// echo "Controller: HOME | Action: TESTE";
 		// renderView('index.phtml');
 	}
 }

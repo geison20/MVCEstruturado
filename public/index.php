@@ -1,69 +1,88 @@
-<?php 
+<?php
 
-    // Uso de PHP 7 para tipagem forte.
-    declare(strict_types=1);
 
-    /**
-     * Composer Autoload System.
+    /*
+    |--------------------------------------------------------------------------
+    | Microframework desenvolvido e mantido por Geisson Machado Antunes <geisonnm@hotmail.com>
+    |--------------------------------------------------------------------------
+    |
+    | Front Controller <design pattern>
     */
+
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Composer autoload
+    |--------------------------------------------------------------------------
+    |
+    | autoload class and files php.
+    */
+
     require_once "../vendor/autoload.php";
 
-    // uso de namespaces usando estilo de psr-4.
-    use 
+    /*
+    |--------------------------------------------------------------------------
+    | Namespaces <psr-4>
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    use
         App\Routes as Route,
         App\Database,
         Dotenv\Dotenv;
 
     /*
     |--------------------------------------------------------------------------
-    | Load Application Config 
+    | Load Application Config
     |--------------------------------------------------------------------------
     |
     | Carrega as Variaveis de Configuração da Aplicação
-    | 
+    |
     | @return [Array] [ROOT/App/Config.php]
     |
     */
-	
-    $config = include('../App/Config/Config.php');    
-        
+
+    $config = include('../App/Config/Config.php');
+
     /*
     |--------------------------------------------------------------------------
-    | Load System VAR 
+    | Load System VAR
     |--------------------------------------------------------------------------
     |
-    | Carrega as Variaveis de Sistema
-    | 
+    | Carrega as Variaveis de ambiente do sistema
+    |
     | https://github.com/vlucas/phpdotenv
     |
     */
-   
-    $dotenv = new Dotenv($config['DOTENV_PATH']); 
+
+    $dotenv = new Dotenv($config['DOTENV_PATH']);
     $dotenv->load();
     $dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS']);
 
     /*
     |--------------------------------------------------------------------------
-    | Load System Routes 
+    | Load System Routes
     |--------------------------------------------------------------------------
     |
     | Carrega o Sistema de Rotas
-    | 
+    |
     | App\Core\Routes\Routes;
     |
     */
 
-    $bootApp = new Route();
+    require_once("../App/Routes.php");
 
     /*
     |--------------------------------------------------------------------------
-    | Load System Database 
+    | Load System Database
     |--------------------------------------------------------------------------
     |
     | Carrega o Sistema de Banco de dados
-    | 
+    |
     | App\Core\Database\Database;
     |
     */
-	
-    $db = new Database();
+
+    new Database();
