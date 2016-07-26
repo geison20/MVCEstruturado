@@ -67,7 +67,7 @@ services:
   data:
     image: mysql:5.7
     volumes:
-        - "./data/db-mysql:/var/lib/mysql"
+        - "./.data/db-mysql:/var/lib/mysql"
     command: "true"
     container_name: mysql-volume
 
